@@ -13,6 +13,31 @@ fun View.initVisiblity(isVisible: Boolean) {
 }
 
 /**
- * Inflates a view wtih given id.
+ * Inflates a view with given id.
  */
 fun ViewGroup.inflate(@LayoutRes resId: Int) = LayoutInflater.from(this.context).inflate(resId, this, false)
+
+/***
+ * Hides or shows view with given predicate
+ */
+inline fun <T : View> T.showIf(predicate: (T) -> Boolean) {
+    if (predicate(this)) {
+        show()
+    } else {
+        hide()
+    }
+}
+
+/**
+ * Shows view
+ */
+fun View.show() {
+    visibility = View.VISIBLE
+}
+
+/***
+ * Hides view
+ */
+fun View.hide() {
+    visibility = View.GONE
+}
