@@ -17,15 +17,5 @@ inline fun supportsVersion(ver: Int, func: () -> Unit) {
  * execute "body" if app in debug mode
  */
 inline fun debug(body: () -> Unit) {
-    if (BuildConfig.DEBUG)
-        body()
-}
-
-/**
- * Simplify using AlertDialog
- */
-inline fun Activity.alert(body: AlertDialog.Builder.() -> AlertDialog.Builder) {
-    AlertDialog.Builder(this)
-            .body()
-            .show()
+    if (BuildConfig.DEBUG) body()
 }
