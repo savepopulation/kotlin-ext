@@ -2,6 +2,7 @@ package com.raqun.kotlinext
 
 import android.app.Activity
 import android.content.Context
+import android.content.res.Configuration
 import android.view.inputmethod.InputMethodManager
 
 /**
@@ -13,3 +14,8 @@ fun Activity.forceCloseKeyboard() {
         imm.hideSoftInputFromWindow(currentFocus.windowToken, 0)
     }
 }
+
+/**
+ * Get activity's orientation is Portrait or not
+ */
+fun Activity.isPortrait() = this.resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT
