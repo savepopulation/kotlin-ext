@@ -1,4 +1,4 @@
-package com.raqun.kotlinext
+package com.raqun.kotlinext.view
 
 import android.support.annotation.LayoutRes
 import android.view.LayoutInflater

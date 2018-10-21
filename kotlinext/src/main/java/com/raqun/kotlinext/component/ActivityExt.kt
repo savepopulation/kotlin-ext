@@ -1,4 +1,4 @@
-package com.raqun.kotlinext
+package com.raqun.kotlinext.component
 
 import android.app.Activity
 import android.content.Context
@@ -6,8 +6,6 @@ import android.content.res.Configuration
 import android.support.v7.app.AlertDialog
 import android.view.View
 import android.view.inputmethod.InputMethodManager
-import android.view.View.SYSTEM_UI_FLAG_FULLSCREEN
-import android.view.View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
 
 
 /**

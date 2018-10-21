@@ -1,4 +1,4 @@
-package com.raqun.kotlinext
+package com.raqun.kotlinext.component
 
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentTransaction

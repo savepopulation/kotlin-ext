@@ -1,4 +1,4 @@
-package com.raqun.kotlinext
+package com.raqun.kotlinext.view
 
 import android.content.Context
 import android.text.Editable
