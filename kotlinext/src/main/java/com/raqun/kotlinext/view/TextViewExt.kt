@@ -3,6 +3,8 @@ package com.raqun.kotlinext.view
 import android.content.Context
 import android.os.Build
 import android.text.Html
+import android.text.TextUtils
+import android.view.View
 import android.widget.TextView
 
 /**
@@ -25,7 +27,7 @@ fun TextView.copyToClipboard(label: String) {
 }
 
 /**
- * set TextView from Html
+ * Set TextView from Html
  */
 fun TextView.setTextFromHtml(html: String) {
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
@@ -33,5 +35,17 @@ fun TextView.setTextFromHtml(html: String) {
     } else {
         @Suppress("DEPRECATION")
         this.text = Html.fromHtml(html)
+    }
+}
+
+/**
+ * Sets given content to TextView or hides it.
+ */
+fun TextView.setAsContent(content: CharSequence?) {
+    if (!TextUtils.isEmpty(content)) {
+        text = content
+        visibility = View.VISIBLE
+    } else {
+        visibility = View.GONE
     }
 }
