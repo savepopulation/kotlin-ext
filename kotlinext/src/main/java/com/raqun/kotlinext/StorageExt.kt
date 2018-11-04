@@ -1,5 +1,8 @@
 package com.raqun.kotlinext
 
+/**
+ * Convets given bytes to human readable form.
+ */
 fun Long.convertBytesToHumanReadableForm(si: Boolean): String {
     val unit = if (si) 1000 else 1024
     if (this < unit) return toString() + " B"
