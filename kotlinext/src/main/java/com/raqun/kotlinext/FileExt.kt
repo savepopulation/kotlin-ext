@@ -49,3 +49,8 @@ fun File.getFiles(): List<File> {
     }
     return inFiles
 }
+
+/**
+ * Gets the file count of given directory
+ */
+fun File.getFileCount() = getFiles().size
