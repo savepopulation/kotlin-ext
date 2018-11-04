@@ -1,2 +1,2 @@
 # kotlin-ext
-Some useful Kotlin extensions and high ordered functions.
+Some useful Kotlin extensions and high order functions.
