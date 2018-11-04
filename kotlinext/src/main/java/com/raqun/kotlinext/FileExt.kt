@@ -31,3 +31,21 @@ fun String.getAsDirectory(): File? {
         null
     }
 }
+
+/**
+ * Gets all files in given directory
+ */
+fun File.getFiles(): List<File> {
+    val inFiles = ArrayList<File>()
+    val files = this.listFiles()
+    if (files != null) {
+        for (file in files) {
+            if (file.isDirectory) {
+                inFiles.addAll(file.getFiles())
+            } else {
+                inFiles.add(file)
+            }
+        }
+    }
+    return inFiles
+}
