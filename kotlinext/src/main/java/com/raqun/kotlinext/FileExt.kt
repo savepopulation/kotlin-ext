@@ -19,3 +19,15 @@ fun File.getUriFromFile(context: Context, authority: String): Uri {
         Uri.fromFile(this)
     }
 }
+
+/**
+ * Checks and returns if there's a valid directory with given path
+ */
+fun String.getAsDirectory(): File? {
+    val directory = File(Environment.getExternalStorageDirectory(), this)
+    return if (directory.exists()) {
+        directory
+    } else {
+        null
+    }
+}
