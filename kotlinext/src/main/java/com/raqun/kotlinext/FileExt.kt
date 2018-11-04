@@ -54,3 +54,28 @@ fun File.getFiles(): List<File> {
  * Gets the file count of given directory
  */
 fun File.getFileCount() = getFiles().size
+
+/**
+ * Calculates the folder size
+ */
+fun File.getFolderSize(): Long {
+    var size: Long = 0
+    if (isDirectory) {
+        val files = listFiles()
+        if (files != null) {
+            for (file in files) {
+                size += if (file.isDirectory) {
+                    file.getFolderSize()
+                } else {
+                    file.length()
+                }
+            }
+        } else {
+            size = 0
+        }
+    } else {
+        size = length()
+    }
+
+    return size
+}
