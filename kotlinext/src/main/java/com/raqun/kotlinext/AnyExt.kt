@@ -15,7 +15,7 @@ fun Any?.isNull() = this == null
  */
 fun Any.tryCatch(tryBlock: () -> Unit,
                  catchBlock: ((t: Throwable) -> Unit)? = null,
-                 finalBlock: (() -> Unit)?) {
+                 finalBlock: (() -> Unit)? = null) {
     try {
         tryBlock()
     } catch (e: Exception) {
