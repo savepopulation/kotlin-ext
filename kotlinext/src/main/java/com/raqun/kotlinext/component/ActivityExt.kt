@@ -39,3 +39,15 @@ fun Activity.hideStatusAndNavigationBar() {
     window.decorView?.systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_FULLSCREEN;
     actionBar?.hide()
 }
+
+/*
+* Get Activity status bar
+ */
+fun Activity.getStatusBarHeight() : Int{
+    var result : Int = 0
+    val resourceId = resources.getIdentifier("status_bar_height", "dimen", "android")
+    if(resourceId > 0){
+        result = resources.getDimensionPixelSize(resourceId)
+    }
+    return result
+}
