@@ -1,0 +1,45 @@
+apply plugin: Plugins.kotlinAndroid
+apply plugin: Plugins.kotlinAndroidExtensions
+
+android {
+    compileSdkVersion Config.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion Config.minSdkVersion
+        targetSdkVersion Config.targetSdkVersion
+        versionCode Config.versionCode
+        versionName Config.versionName
+        vectorDrawables.useSupportLibrary = true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            debuggable true
+        }
+    }
+}
+
+dependencies {
+
+    // Core
+    implementation CoreLibraries.kotlin
+
+    // Testing
+    testImplementation TestLibraries.jUnit
+    androidTestImplementation TestLibraries.runnner
+    androidTestImplementation TestLibraries.espressoCore
+}
+
+configurations.all {
+    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+        def requested = details.requested
+        if (requested.group == 'org.jetbrains.kotlin') {
+            details.useVersion Versions.kotlinVersion
+        }
+    }
+}
